@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+/* ============================================================
+   FixIt Design System — Tailwind CSS v4
+   ============================================================ */
+
+@theme inline {
+  /* Colors */
+  --color-primary: #22c55e;
+  --color-primary-hover: #16a34a;
+  --color-primary-light: #4ade80;
+  --color-primary-dark: #15803d;
+
+  --color-navy: #0f172a;
+  --color-navy-light: #1e293b;
+  --color-navy-lighter: #334155;
+
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+
+  --color-urgency-red: #ef4444;
+  --color-urgency-orange: #f97316;
+  --color-urgency-yellow: #eab308;
+  --color-urgency-green: #22c55e;
+
+  --color-status-reported: #9ca3af;
+  --color-status-verified: #3b82f6;
+  --color-status-in-progress: #eab308;
+  --color-status-resolved: #22c55e;
+  --color-status-rejected: #ef4444;
+
+  --color-card-bg: #1e293b;
+  --color-card-border: #334155;
+  --color-card-hover: #263548;
+
+  --color-background: var(--color-navy);
+  --color-foreground: var(--color-text-primary);
+
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-fade-up: fade-up 0.6s ease-out;
+  --animate-slide-in: slide-in 0.4s ease-out;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-count-up: count-up 1s ease-out;
+}
+
+/* ============================================================
+   Keyframes
+   ============================================================ */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6), 0 0 40px rgba(34, 197, 94, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--color-card-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-navy);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-navy);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-navy-lighter);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-slate-500);
+  }
+}
+
+/* ============================================================
+   Component Utilities
+   ============================================================ */
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    border-radius: 16px;
+  }
+
+  .glass-card-hover {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(38, 53, 72, 0.8);
+    border-color: rgba(34, 197, 94, 0.3);
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Animated dot grid background */
+  .dot-grid {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Green glow effect */
+  .green-glow {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3),
+                0 0 30px rgba(34, 197, 94, 0.1);
+  }
+
+  .green-glow-sm {
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.2),
+                0 0 16px rgba(34, 197, 94, 0.05);
+  }
+
+  /* Inner glow for cards */
+  .inner-glow {
+    box-shadow: inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Urgency bar */
+  .urgency-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--color-navy-lighter);
+    overflow: hidden;
+  }
+
+  .urgency-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease-out, background-color 0.5s ease;
+  }
+
+  /* Status badge base */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid;
+  }
+
+  /* Section container */
+  .section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Gradient border card */
+  .gradient-border {
+    position: relative;
+    border-radius: 16px;
+    background: var(--color-card-bg);
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 17px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(51, 65, 85, 0.5));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+}
+
+/* ============================================================
+   Google Fonts Import
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
