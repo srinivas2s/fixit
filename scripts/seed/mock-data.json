@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": "mock-user-1",
+      "email": "citizen1@example.com",
+      "full_name": "Sarah J.",
+      "role": "citizen",
+      "reputation_score": 1420
+    },
+    {
+      "id": "mock-user-2",
+      "email": "citizen2@example.com",
+      "full_name": "Michael T.",
+      "role": "citizen",
+      "reputation_score": 1180
+    },
+    {
+      "id": "mock-admin-1",
+      "email": "admin.roads@bangalore.gov.in",
+      "full_name": "Ravi K.",
+      "role": "department_admin",
+      "department": "Roads & Infrastructure",
+      "reputation_score": 100
+    },
+    {
+      "id": "mock-super-1",
+      "email": "super@fixit.local",
+      "full_name": "System Admin",
+      "role": "super_admin",
+      "department": "All",
+      "reputation_score": 100
+    }
+  ],
+  "reports": [
+    {
+      "title": "Massive pothole on 100ft Road Indiranagar",
+      "description": "Deep crater spanning half the lane. Several bikes have already skidded here after the rain.",
+      "category": "pothole",
+      "latitude": 12.9784,
+      "longitude": 77.6408,
+      "urgency_score": 9,
+      "status": "open",
+      "confirmations": 42,
+      "image_url": "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=600&auto=format&fit=crop",
+      "author_index": 0
+    },
+    {
+      "title": "Broken streetlights near Koramangala BDA Complex",
+      "description": "Entire stretch of streetlights is off. Very unsafe for pedestrians at night.",
+      "category": "streetlight",
+      "latitude": 12.9279,
+      "longitude": 77.6271,
+      "urgency_score": 7,
+      "status": "in_progress",
+      "confirmations": 15,
+      "image_url": "https://images.unsplash.com/photo-1621272036047-bb0f76bbc1ad?q=80&w=600&auto=format&fit=crop",
+      "author_index": 1
+    },
+    {
+      "title": "Garbage dump accumulating near MG Road Metro",
+      "description": "Overflowing bins have spilled onto the pavement, blocking the walking path completely.",
+      "category": "garbage",
+      "latitude": 12.9749,
+      "longitude": 77.6083,
+      "urgency_score": 5,
+      "status": "resolved",
+      "confirmations": 8,
+      "image_url": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=600&auto=format&fit=crop",
+      "author_index": 0
+    },
+    {
+      "title": "Burst water pipe flooding Whitefield main road",
+      "description": "Thousands of liters wasting since yesterday morning. Road is completely flooded.",
+      "category": "water_leak",
+      "latitude": 12.9698,
+      "longitude": 77.7499,
+      "urgency_score": 10,
+      "status": "open",
+      "confirmations": 89,
+      "image_url": "https://images.unsplash.com/photo-1541888087425-452796e6a1db?q=80&w=600&auto=format&fit=crop",
+      "author_index": 1
+    }
+  ]
+}

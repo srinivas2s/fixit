@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FixIt: Civic Issue Reporting Platform
 
-## Getting Started
+AI-powered civic reporting that holds authorities accountable. Built for communities.
 
-First, run the development server:
+## Overview
+FixIt allows citizens to snap photos of civic issues (like potholes, broken streetlights, or garbage). The platform uses AI to automatically classify the issue and route it to the correct department, while plotting it on a public, transparent heatmap.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
+- **Framework:** Next.js 14+ (App Router)
+- **Database/Auth:** Supabase (PostgreSQL)
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Maps:** react-leaflet + OpenStreetMap
+- **State:** Zustand
+- **Animations:** Framer Motion
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> **Note:** If you are experiencing network issues with `npm install`, ensure you are not behind a restrictive proxy or VPN.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Install Dependencies**
+   ```bash
+   npm install --legacy-peer-deps
+   ```
 
-## Learn More
+2. **Environment Variables**
+   Create a `.env.local` file with your Supabase credentials:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Database Setup**
+   Run the SQL migration script located in `scripts/seed/schema.sql` (if you created one) in your Supabase SQL editor to create the `reports` and `profiles` tables.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Seed Mock Data**
+   We have provided a seed script populated with realistic data from Bangalore (Indiranagar, Koramangala, etc.).
+   
+   Run the seed script using `ts-node`:
+   ```bash
+   npx ts-node scripts/seed/seed.ts
+   ```
+   *This will create mock Citizen and Admin users, along with several pre-populated reports.*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **Start the Development Server**
+   ```bash
+   npm run dev
+   ```
+   Navigate to `http://localhost:3000` to view the application.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## User Roles & Testing
+After seeding, you can log in with the following mock accounts:
+- **Citizen:** `citizen1@example.com` (Password: `Password123!`)
+- **Dept Admin:** `admin.roads@bangalore.gov.in` (Password: `Password123!`)
+- **Super Admin:** `super@fixit.local` (Password: `Password123!`)
