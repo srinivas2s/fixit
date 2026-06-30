@@ -77,10 +77,10 @@ async function runSeed() {
         longitude: report.longitude,
         urgency_score: report.urgency_score,
         status: report.status,
-        confirmations: report.confirmations,
-        image_url: report.image_url,
+        confirmation_count: report.confirmations,
+        photo_url: report.image_url,
         // Map the mock author_index to the newly created UUIDs
-        author_id: Array.from(userMap.values())[report.author_index]
+        citizen_id: Array.from(userMap.values())[report.author_index]
       }));
 
       const { error: reportsError } = await supabase

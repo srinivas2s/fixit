@@ -104,10 +104,10 @@ export default function MapView() {
                 </div>
               </div>
 
-              {selectedReport.image_url && (
+              {selectedReport.photo_url && (
                 <div className="w-full aspect-video bg-navy-light rounded-xl mb-4 overflow-hidden border border-card-border relative">
                   <img 
-                    src={selectedReport.image_url} 
+                    src={selectedReport.photo_url} 
                     alt={selectedReport.title}
                     className="w-full h-full object-cover"
                   />

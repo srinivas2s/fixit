@@ -111,8 +111,8 @@ export default function DepartmentAdminPage() {
 
               <div className="flex-1 flex flex-col md:flex-row gap-6">
                 {/* Img */}
-                {report.image_url ? (
-                  <img src={report.image_url} alt="" className="w-32 h-24 object-cover rounded-lg border border-card-border shrink-0" />
+                {report.photo_url ? (
+                  <img src={report.photo_url} alt="" className="w-32 h-24 object-cover rounded-lg border border-card-border shrink-0" />
                 ) : (
                   <div className="w-32 h-24 bg-navy-light rounded-lg border border-card-border shrink-0 flex items-center justify-center">
                     <AlertCircle className="w-8 h-8 text-text-secondary/50" />

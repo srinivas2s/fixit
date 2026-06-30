@@ -96,9 +96,9 @@ export default function MyReportsPage() {
               }`} />
               
               {/* Image Thumbnail */}
-              {report.image_url ? (
-                <div className="w-full md:w-48 h-32 rounded-xl overflow-hidden shrink-0 border border-card-border bg-navy-light">
-                  <img src={report.image_url} alt={report.title} className="w-full h-full object-cover" />
+              {report.photo_url ? (
+                <div className="w-full h-48 md:h-full overflow-hidden">
+                  <img src={report.photo_url} alt={report.title} className="w-full h-full object-cover" />
                 </div>
               ) : (
                 <div className="w-full md:w-48 h-32 rounded-xl shrink-0 border border-card-border bg-navy-light flex items-center justify-center">

@@ -24,9 +24,24 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
+      let loginEmail = email;
+      let loginPassword = password;
+      
+      // Demo bypass
+      if (email === '1' && password === '1') {
+        loginEmail = 'citizen1@example.com';
+        loginPassword = 'Password123!';
+      } else if (email === '2' && password === '2') {
+        loginEmail = 'admin.roads@bangalore.gov.in';
+        loginPassword = 'Password123!';
+      } else if (email === '3' && password === '3') {
+        loginEmail = 'super@fixit.local';
+        loginPassword = 'Password123!';
+      }
+
       const { data, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+        email: loginEmail,
+        password: loginPassword,
       });
 
       if (authError) throw authError;
@@ -124,7 +139,7 @@ export default function LoginPage() {
             <div className="space-y-1.5">
               <label className="text-sm font-medium text-text-secondary">Email</label>
               <input
-                type="email"
+                type="text"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
