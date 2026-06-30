@@ -63,6 +63,7 @@ export interface Report {
   updated_at: string;
   // Joined fields (optional)
   citizen?: Profile;
+  authorName?: string;
   authority_report?: AuthorityReport;
 }
 
