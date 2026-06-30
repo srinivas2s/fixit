@@ -112,9 +112,9 @@ export default function ReportForm() {
           latitude: data.latitude,
           longitude: data.longitude,
           image_url: imageUrl,
-          author_id: user.id,
+          citizen_id: user.id,
           urgency_score: aiAnalysis?.severity || 1,
-          status: 'open',
+          status: 'reported',
           department_id: null // Unassigned initially
         });
 

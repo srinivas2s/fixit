@@ -80,8 +80,8 @@ export async function POST(request: Request) {
 
     const { error } = await supabase.from('reports').insert({
       ...body,
-      author_id: user.id,
-      status: 'open'
+      citizen_id: user.id,
+      status: 'reported'
     });
 
     if (error) throw error;

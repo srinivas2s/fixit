@@ -23,7 +23,7 @@ export default function MyReportsPage() {
         const { data, error } = await supabase
           .from('reports')
           .select('*')
-          .eq('author_id', user.id)
+          .eq('citizen_id', user.id)
           .order('created_at', { ascending: false });
 
         if (error) throw error;
@@ -140,7 +140,7 @@ export default function MyReportsPage() {
                   
                   <div className="flex items-center gap-1.5 text-text-secondary">
                     <CheckCircle2 className="w-4 h-4" />
-                    {report.confirmations} Confirmations
+                    {report.confirmation_count} Confirmations
                   </div>
                 </div>
               </div>
