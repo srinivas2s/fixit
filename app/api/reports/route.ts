@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status');
-    const department_id = searchParams.get('department_id');
+    const department = searchParams.get('department');
 
     const cookieStore = await cookies();
     
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
     let query = supabase.from('reports').select('*, profiles(full_name)');
 
     if (status) query = query.eq('status', status);
-    if (department_id) query = query.eq('department_id', department_id);
+    if (department) query = query.eq('assigned_department', department);
 
     // Order by urgency score first (highest first), then by creation date
     query = query.order('urgency_score', { ascending: false }).order('created_at', { ascending: false });
