@@ -49,17 +49,20 @@ export interface Report {
     type: 'Point';
     coordinates: [number, number]; // [longitude, latitude]
   };
+  // Flat fields returned by Supabase (PostGIS stores as geography but queries can return flat)
+  latitude: number;
+  longitude: number;
   address: string | null;
   photo_url: string;
   photo_embedding: number[] | null;
   confirmation_count: number;
+  confirmations: number;    // Alias used in some components
   assigned_department: string | null;
   resolved_at: string | null;
   created_at: string;
   updated_at: string;
   // Joined fields (optional)
   citizen?: Profile;
-  confirmations?: Confirmation[];
   authority_report?: AuthorityReport;
 }
 
