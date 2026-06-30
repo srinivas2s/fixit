@@ -31,7 +31,7 @@ export default function MapPage() {
         const { data, error } = await supabase
           .from('reports')
           .select('*, profiles(full_name)')
-          .eq('status', 'open');
+          .in('status', ['reported', 'verified', 'in_progress']);
 
         if (error) throw error;
         
