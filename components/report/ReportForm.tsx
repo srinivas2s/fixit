@@ -109,13 +109,12 @@ export default function ReportForm() {
           title: data.title,
           description: data.description,
           category: aiAnalysis?.category || 'other',
-          latitude: data.latitude,
-          longitude: data.longitude,
-          image_url: imageUrl,
+          severity: aiAnalysis?.severity || 5,
+          photo_url: imageUrl,
           citizen_id: user.id,
           urgency_score: aiAnalysis?.severity || 1,
           status: 'reported',
-          department_id: null // Unassigned initially
+          assigned_department: null
         });
 
       if (insertError) throw insertError;
